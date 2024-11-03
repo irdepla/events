@@ -1,0 +1,139 @@
+DOM
+
+
+DOM - Children
+
+1. children Property
+Description: Returns an HTMLCollection of the child elements (not including text nodes).
+
+Example:
+javascript
+Copy code
+const parent = document.getElementById("parent");
+const childElements = parent.children; // Collection of children
+Tip: Since children is a live collection, it updates if the DOM changes.
+2. childNodes Property
+Description: Returns all child nodes, including text nodes, comments, and elements.
+Example:
+javascript
+Copy code
+const parent = document.getElementById("parent");
+const childNodes = parent.childNodes; // Collection includes text nodes
+Tip: You can filter out text nodes if you only need element nodes.
+3. firstChild & lastChild Properties
+Description: Accesses the first and last child nodes (which can be elements, text, or comments).
+Example:
+javascript
+Copy code
+const parent = document.getElementById("parent");
+const firstChild = parent.firstChild;
+const lastChild = parent.lastChild;
+Tip: Use firstElementChild or lastElementChild if you want only elements.
+4. firstElementChild & lastElementChild Properties
+Description: Specifically returns the first and last child elements.
+Example:
+javascript
+Copy code
+const firstElement = parent.firstElementChild;
+const lastElement = parent.lastElementChild;
+5. hasChildNodes() Method
+Description: Checks if the element has any child nodes.
+Example:
+javascript
+Copy code
+if (parent.hasChildNodes()) {
+  console.log("Parent has children!");
+}
+6. appendChild() Method
+Description: Adds a new child element as the last child of the parent element.
+Example:
+javascript
+Copy code
+const newChild = document.createElement("div");
+parent.appendChild(newChild);
+7. insertBefore() Method
+Description: Inserts a new element before a specified child of the parent.
+Example:
+javascript
+Copy code
+const newChild = document.createElement("div");
+parent.insertBefore(newChild, parent.children[0]); // Inserts at the beginning
+8. removeChild() Method
+Description: Removes a specified child from the parent.
+Example:
+javascript
+Copy code
+const childToRemove = parent.children[0];
+parent.removeChild(childToRemove);
+9. Looping Through Children
+Example:
+javascript
+Copy code
+Array.from(parent.children).forEach(child => {
+  console.log(child);
+});
+10. replaceChild() Method
+Description: Replaces an existing child with a new one.
+Example:
+javascript
+Copy code
+const newChild = document.createElement("div");
+const oldChild = parent.children[0];
+parent.replaceChild(newChild, oldChild);
+Using these properties and methods, you can dynamically manage and manipulate child elements effectively in the DOM.
+
+
+								Map
+
+Data Structure - bu ma'lumotlarni samarali tarzda saqlash va boshqarish uchun yaratilgan maxsus formatdir.Kopro algoritmlani yechsishda foydasi boladi.
+
+
+1.Map: Kalit-qiymat juftligi(Key-Value properties)
+
+Map obyektga oxshab kalit-qiymat juftlig tarzda ma'lumot saqlash imkonini beradi.Farqi mapda kalit qilib, har qanaqa malumot turini qoysa boladi misol uchun obyekttiyam. 
+
+
+const map = new Map();
+
+map.set('name', "Thomas");
+map.set('age', "25");
+
+
+console.log(map.get('ism'))  //	Thomas chiqadi.
+
+
+console.log(map.size) // length bn bir xil uzunligini chiqazadi.
+
+delete() - qaysidir bitta elementti ochiradi map dan
+clear() - map digi hamma elementlani ochiradi.
+size - map uzunligini korsatadi.
+get() - map ichidagi elementti oladi.
+has() - map ichida osha element bor yoki yoligni tekshiradi true yoki false qaytaradi
+set() - map ichiga element qoshadi.
+keys() - map ichidagi hamma kalitlani qaytaradi.
+values() - map ichidagi qiymatlani qayatardi.
+entries() - ham kalit ham qiymatlani qaytaradi.
+
+				Set
+
+Set obyektlar toplamiga oxshidi lekin unda unikal qiymatla saqlanadi. Ikkita bir xil element bomidi.
+
+
+const set = new Set() // Yengi set yaratish
+
+Mapdigi hamma metodla bir xil ishlidi lekin element qoshishda add ishlatiladi.
+
+set.add(1) // Yengi element qoshadi.
+
+
+				Weakmap
+
+Weakmapam Map ga oxshidi lekin bunda faqat obyek sifatida kalit ishlatiladi. Uni asosiy ishi garbage collection bn bogliq, ya'ni obyekt kalitiga bogliq bomagan qiymatlar avtomatik xotiradan ochiriladi.Bu xotira samaradorligiga yordam beradi.
+
+
+Weakmapda forEach va for...of ishlatib bomidi
+
+
+
+				WeakSet
+
