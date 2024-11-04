@@ -98,44 +98,44 @@
 // Game
 
 
-const randomNumber = Math.floor(Math.random() * 10) + 1;
-const input = document.getElementById("input");
-const submitBtn = document.getElementById("submit-btn");
-const feedback = document.getElementById("feedback")
-const text = document.getElementById("attempts")
-let attempts = 5;
-let userNumber;
+// const randomNumber = Math.floor(Math.random() * 10) + 1;
+// const input = document.getElementById("input");
+// const submitBtn = document.getElementById("submit-btn");
+// const feedback = document.getElementById("feedback")
+// const text = document.getElementById("attempts")
+// let attempts = 5;
+// let userNumber;
 
 
         
-submitBtn.addEventListener("click", () => {
-    userNumber = parseInt(input.value);
+// submitBtn.addEventListener("click", () => {
+//     userNumber = parseInt(input.value);
   
     
-  if (isNaN(userNumber) || userNumber < 1 || userNumber > 10) {
-      alert("Please enter a valid number between 1 and 10.");
-      return;
-  }
+//   if (isNaN(userNumber) || userNumber < 1 || userNumber > 10) {
+//       alert("Please enter a valid number between 1 and 10.");
+//       return;
+//   }
   
-    if (userNumber === randomNumber) {
-      feedback.innerText = "Uraa! Siz to'g'ri topdingiz!"
+//     if (userNumber === randomNumber) {
+//       feedback.innerText = "Uraa! Siz to'g'ri topdingiz!"
       
-    }
+//     }
   
-    else if(userNumber < randomNumber){
-      feedback.innerText = "Sizning soningiz kichkina"
-      attempts--
-      text.innerText = `Sizda ${attempts} ta urinish qoldi.`
-    }
+//     else if(userNumber < randomNumber){
+//       feedback.innerText = "Sizning soningiz kichkina"
+//       attempts--
+//       text.innerText = `Sizda ${attempts} ta urinish qoldi.`
+//     }
   
-    else if(userNumber > randomNumber){
-      feedback.innerText = "Siz kiritgan son katta"
-      attempts--
-      text.innerText = `Sizda ${attempts} ta urinish qoldi.`
-    }
+//     else if(userNumber > randomNumber){
+//       feedback.innerText = "Siz kiritgan son katta"
+//       attempts--
+//       text.innerText = `Sizda ${attempts} ta urinish qoldi.`
+//     }
   
-  input.value = ""
+//   input.value = ""
   
-  });
+//   });
 
 

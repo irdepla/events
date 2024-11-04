@@ -1,5 +1,7 @@
 DOM
 
+DOM - bu document object model ya'ni dasturchila uchun html va js ortasidagi bogliqlik hisoblanadi uni yordamida veb saytti dinamiklashtirish, jonlantirish figma bilan ishlash mumkin.DOM shajara shaklida tuzilgan.Eng kotta otasi botta document hisoblanadi, undan keying html shunaqasi keturadi pasga qarab.
+
 
 DOM - Children
 
@@ -137,3 +139,205 @@ Weakmapda forEach va for...of ishlatib bomidi
 
 				WeakSet
 
+WeakSetam xuddi shunaqa lekin undayam xotira samaradorligi borligi bn farq qiladi.
+
+
+
+
+
+									BOM
+
+
+BOM - Browser Object Model bu veb-brauzee bilan muloqot qilish imkonini beradigan Javascript obyektlar to'plami.BOM yordamida har xil funksiyala bn ishlasa boladi. BOM da quiyidagi uchta asosiy component bor:
+
+
+window - brauzer oynasi
+document - HTML hujjat
+navigator - foydalanuchining brauzeri va platformasini aniqlash imkoni beradi.
+
+1.setTimeout
+
+setTimeout - belgilangan vaqt o'tgach bir marta bajariladigan funksiyani rejalashtirish uchun ishlatiladi.
+
+<h1>Welcome to the Site!</h1>
+    <p id="greeting" style="display:none;">Hello! Thanks for visiting!</p>
+
+    <script>
+        // Function to show the greeting
+        function showGreeting() {
+            const greetingElement = document.getElementById("greeting");
+            greetingElement.style.display = "block"; // Show the greeting
+        }
+
+        // Call showGreeting after 3 seconds (3000 milliseconds)
+        setTimeout(showGreeting, 3000);
+    </script>
+
+Opening and Closing Windows
+1. window.open(url, name, specs)
+Purpose: Opens a new browser window or tab.
+
+Parameters:
+
+url: The URL of the page to open. If not specified, a new blank page is opened.
+name: A string that specifies the name of the window. This can be used as a target for links (e.g., _blank to open in a new tab).
+specs: A string that defines the features of the new window (like width, height, position, etc.). Common options include:
+width: Width of the window in pixels.
+height: Height of the window in pixels.
+left: The position from the left edge of the screen.
+top: The position from the top edge of the screen.
+resizable: Whether the window can be resized (yes or no).
+Example:
+
+javascript
+Copy code
+window.open("https://www.example.com", "exampleWindow", "width=600,height=400");
+2. window.close()
+Purpose: Closes the current browser window or tab.
+
+Usage: This method can only close windows that were opened by the script using window.open(). It typically won't work for windows or tabs that were opened by the user or as a result of a direct browser action.
+
+Example:
+
+javascript
+Copy code
+const newWindow = window.open("https://www.example.com");
+// ... some logic
+newWindow.close(); // This closes the opened window
+Timing Functions
+1. setTimeout()
+Purpose: Executes a specified function or code snippet after a set amount of time (in milliseconds).
+
+Parameters:
+
+callback: The function to be executed after the delay.
+delay: The time to wait before executing the function (in milliseconds).
+...args: Additional arguments that can be passed to the callback function.
+Return Value: Returns a unique identifier (timeout ID) that can be used to cancel the timeout using clearTimeout().
+
+Example:
+
+javascript
+Copy code
+const timeoutId = setTimeout(() => {
+    console.log("This message is displayed after 2 seconds.");
+}, 2000);
+Cancelling a Timeout:
+
+javascript
+Copy code
+clearTimeout(timeoutId); // Cancels the timeout if called before the delay is over
+2. setInterval()
+Purpose: Repeatedly executes a specified function or code snippet at set intervals (in milliseconds).
+
+Parameters:
+
+callback: The function to be executed at each interval.
+interval: The time to wait between each execution (in milliseconds).
+Return Value: Returns a unique identifier (interval ID) that can be used to cancel the interval using clearInterval().
+
+Example:
+
+javascript
+Copy code
+const intervalId = setInterval(() => {
+    console.log("This message is displayed every 1 second.");
+}, 1000);
+Cancelling an Interval:
+
+javascript
+Copy code
+clearInterval(intervalId); // Stops the interval from running
+Summary
+window.open() and window.close() allow you to control browser windows or tabs programmatically.
+setTimeout() is useful for executing code after a delay, while setInterval() is ideal for executing code repeatedly at specified intervals. Both functions are critical for managing timing and delays in web applications.
+
+										Events
+
+
+Events in JavaScript are actions or occurrences that happen in the browser, which can be detected and handled by JavaScript code. They are a fundamental part of the DOM (Document Object Model) and allow for interactive and dynamic web pages. Here’s an overview of events in JavaScript:
+
+Types of Events
+Mouse Events: Triggered by mouse actions.
+
+click: Fired when an element is clicked.
+dblclick: Fired when an element is double-clicked.
+mouseover: Fired when the mouse pointer moves over an element.
+mouseout: Fired when the mouse pointer leaves an element.
+mousemove: Fired when the mouse moves over an element.
+Keyboard Events: Triggered by keyboard actions.
+
+keydown: Fired when a key is pressed down.
+keyup: Fired when a key is released.
+keypress: Fired when a key is pressed (deprecated, use keydown or keyup instead).
+Form Events: Triggered by user actions in form elements.
+
+submit: Fired when a form is submitted.
+change: Fired when the value of an input element changes.
+focus: Fired when an element gains focus.
+blur: Fired when an element loses focus.
+Window Events: Triggered by actions on the window or document.
+
+load: Fired when the entire page has loaded, including stylesheets and images.
+resize: Fired when the window is resized.
+scroll: Fired when the document is scrolled.
+Touch Events: Triggered by touch actions on mobile devices.
+
+touchstart: Fired when a touch point is placed on the touch surface.
+touchmove: Fired when a touch point is moved along the touch surface.
+touchend: Fired when a touch point is removed from the touch surface.
+Event Handling
+Events can be handled using event listeners, which are functions that execute when a specific event occurs. Here's how to work with events:
+
+Adding an Event Listener:
+
+Use the addEventListener() method to register an event handler.
+Syntax: element.addEventListener(event, handler[, options]);
+Parameters:
+event: The type of event to listen for (e.g., "click").
+handler: The function that executes when the event occurs.
+options (optional): An object that can specify additional options, like { capture: true }.
+Example:
+
+
+const button = document.getElementById("myButton");
+button.addEventListener("click", () => {
+    alert("Button was clicked!");
+});
+Removing an Event Listener:
+
+Use the removeEventListener() method to unregister an event handler.
+Syntax: element.removeEventListener(event, handler[, options]);
+Parameters: Same as addEventListener().
+Example:
+
+
+
+const handler = () => {
+    alert("Button was clicked!");
+};
+button.addEventListener("click", handler);
+button.removeEventListener("click", handler);
+Event Propagation:
+
+Events can propagate in two ways: bubbling and capturing.
+Bubbling: The event starts from the target element and bubbles up to the root.
+Capturing: The event starts from the root and travels down to the target element.
+You can specify the use of capturing by setting the third parameter of addEventListener() to true.
+Event Object:
+
+When an event occurs, an event object is created and passed to the event handler, containing information about the event.
+Common properties of the event object:
+target: The element that triggered the event.
+type: The type of the event (e.g., "click").
+preventDefault(): Prevents the default action of the event (e.g., preventing a form submission).
+stopPropagation(): Stops the event from propagating to parent elements.
+Example:
+
+javascript
+button.addEventListener("click", (event) => {
+    event.preventDefault(); // Prevents the default action
+    console.log(event.target); // Logs the element that was clicked
+});
+Summary
+Events are essential for creating interactive web applications. By understanding how to handle events with event listeners and utilizing the event object, you can effectively manage user interactions and enhance the user experience on your web pages.
